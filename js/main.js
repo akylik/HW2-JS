@@ -13,11 +13,9 @@ const skipEvenNumber = confirm(`Пропускати парні числа?`);
 let sumNumber = 0;
 if (skipEvenNumber) {
    for (let i = firstNumber; i <= secondNumber; i++) {
-      if (i % 2 === 0) {
-         sumNumber += 0;
-      } else {
+      if (i % 2 === 1 && skipEvenNumber) {
          sumNumber += i;
-      }
+      } 
    }
 }
 else {
@@ -30,3 +28,4 @@ console.log(`Перше число ${firstNumber}`);
 console.log(`Друге число ${secondNumber}`);
 console.log(`Пропускати парні числа? ${skipEvenNumber}`);
 console.log(`Сума чисел ${sumNumber}`);
+
