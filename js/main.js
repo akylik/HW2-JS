@@ -3,25 +3,19 @@ let secondNumber;
 
 do {
    firstNumber = +prompt(`Введіть перше ціле число`);
-} while (Number.isInteger(firstNumber) === false);
+} while (!Number.isInteger(firstNumber));
 
 do {
    secondNumber = +prompt(`Введіть друге ціле число`);
-} while (firstNumber >= secondNumber || Number.isInteger(secondNumber) === false);
+} while (firstNumber >= secondNumber || !Number.isInteger(secondNumber));
 
 const skipEvenNumber = confirm(`Пропускати парні числа?`);
 let sumNumber = 0;
-if (skipEvenNumber) {
-   for (let i = firstNumber; i <= secondNumber; i++) {
-      if (i % 2 === 1 && skipEvenNumber) {
-         sumNumber += i;
-      } 
+for (let i = firstNumber; i <= secondNumber; i++) {
+   if (skipEvenNumber && i % 2 === 0) {
+      continue;
    }
-}
-else {
-   for (let i = firstNumber; i <= secondNumber; i++) {
-      sumNumber += i;
-   }
+   sumNumber += i;
 }
 
 console.log(`Перше число ${firstNumber}`);
